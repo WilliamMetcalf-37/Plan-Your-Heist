@@ -1,0 +1,10 @@
+/Users/williammetcalf/workspace/PlanYourHeist/bin/Debug/netcoreapp3.1/PlanYourHeist.deps.json
+/Users/williammetcalf/workspace/PlanYourHeist/bin/Debug/netcoreapp3.1/PlanYourHeist.runtimeconfig.json
+/Users/williammetcalf/workspace/PlanYourHeist/bin/Debug/netcoreapp3.1/PlanYourHeist.runtimeconfig.dev.json
+/Users/williammetcalf/workspace/PlanYourHeist/bin/Debug/netcoreapp3.1/PlanYourHeist.dll
+/Users/williammetcalf/workspace/PlanYourHeist/bin/Debug/netcoreapp3.1/PlanYourHeist.pdb
+/Users/williammetcalf/workspace/PlanYourHeist/obj/Debug/netcoreapp3.1/PlanYourHeist.csprojAssemblyReference.cache
+/Users/williammetcalf/workspace/PlanYourHeist/obj/Debug/netcoreapp3.1/PlanYourHeist.AssemblyInfoInputs.cache
+/Users/williammetcalf/workspace/PlanYourHeist/obj/Debug/netcoreapp3.1/PlanYourHeist.AssemblyInfo.cs
+/Users/williammetcalf/workspace/PlanYourHeist/obj/Debug/netcoreapp3.1/PlanYourHeist.dll
+/Users/williammetcalf/workspace/PlanYourHeist/obj/Debug/netcoreapp3.1/PlanYourHeist.pdb
