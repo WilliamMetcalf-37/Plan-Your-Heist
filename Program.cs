@@ -40,7 +40,8 @@ namespace PlanYourHeist {
                     decimal totalSkills = 0;
                     for (int i = 0; i < skillLevel.Count; i++) {
                         decimal courageFactorDecimal = courageFactor[i];
-                        decimal skillCalc = skillLevel[i] * courageFactorDecimal;
+                        decimal couragePercent = courageFactorDecimal / 2;
+                        decimal skillCalc = skillLevel[i] * couragePercent;
                         totalSkills += skillCalc;
                     }
 
@@ -85,7 +86,7 @@ namespace PlanYourHeist {
 
                 foreach (KeyValuePair<int, int> kill in skillLevel) {
                     decimal courageFactorDecimal = courageFactor[kill.Key];
-                    decimal couragePercent = 02 / courageFactorDecimal;
+                    decimal couragePercent = courageFactorDecimal / 2;
                     decimal currentskillCalc = kill.Value * couragePercent;
 
                     skillTotal += currentskillCalc;
