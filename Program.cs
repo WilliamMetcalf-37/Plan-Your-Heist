@@ -19,6 +19,7 @@ namespace PlanYourHeist {
             int bankDifficulty = int.Parse (Console.ReadLine ());
             int successCount = 0;
             int failCount = 0;
+
             while (true) {
 
                 Console.WriteLine ("Write Your Name");
@@ -36,9 +37,11 @@ namespace PlanYourHeist {
                         decimal courageFactorDecimal = courageFactor[person.Key];
                         Console.WriteLine ($"Name:  {person.Value} Skill Level:{skillLevelInt} Courage Factor:{courageFactorDecimal} ");
                     }
-                    int totalSkills = 0;
+                    decimal totalSkills = 0;
                     for (int i = 0; i < skillLevel.Count; i++) {
-                        totalSkills += skillLevel[i];
+                        decimal courageFactorDecimal = courageFactor[i];
+                        decimal skillCalc = skillLevel[i] * courageFactorDecimal;
+                        totalSkills += skillCalc;
                     }
 
                     for (int i = 0; i < trialAttempts; i++) {
@@ -46,17 +49,19 @@ namespace PlanYourHeist {
                         Random bankLuck = new Random ();
 
                         int secretNumber = bankLuck.Next (-10, 11);
-                        bankDifficulty = bankDifficulty + secretNumber;
-                        Console.WriteLine ($"Attempt {i}");
+
+                        int finalBankDifficulty = bankDifficulty + secretNumber;
+                        Console.WriteLine ($"Attempt {i + 1}");
                         Console.WriteLine ($"There are {memberName.Count} team members");
                         Console.WriteLine ($"Your teams Skill Level is {totalSkills}");
-                        Console.WriteLine ($"The bank Difficulty is {bankDifficulty}");
-                        if (totalSkills < bankDifficulty) {
+                        Console.WriteLine ($"The bank Difficulty is {finalBankDifficulty}");
+                        if (totalSkills < finalBankDifficulty) {
                             Console.WriteLine ("Your team will fail!");
-                            successCount++;
+                            failCount++;
+
                         } else {
                             Console.WriteLine ("Your team will Succeed!");
-                            failCount++;
+                            successCount++;
                         }
                     }
                     break;
@@ -64,7 +69,8 @@ namespace PlanYourHeist {
                 memberName.Add (memberName.Count, name);
                 // members.Add (memberName);
                 //users skill level
-                Console.WriteLine ("Write your Skill Level between 1 and 50");
+                int maxSkillForPerson = bankDifficulty / 2;
+                Console.WriteLine ($"Write your Skill Level between 1 and {maxSkillForPerson}");
                 int skill;
                 skill = int.Parse (Console.ReadLine ());
 
@@ -75,19 +81,17 @@ namespace PlanYourHeist {
                 decimal courage;
                 courage = decimal.Parse (Console.ReadLine ());
                 courageFactor.Add (courageFactor.Count, courage);
+                decimal skillTotal = 0;
 
-                // courages.Add (courageFactor);
-                // Console.WriteLine ("the user's info");
+                foreach (KeyValuePair<int, int> kill in skillLevel) {
+                    decimal courageFactorDecimal = courageFactor[kill.Key];
+                    decimal couragePercent = 02 / courageFactorDecimal;
+                    decimal currentskillCalc = kill.Value * couragePercent;
 
-                // foreach (KeyValuePair<int, string> pair in memberName) {
-                //     Console.WriteLine ($"Name: {pair.Value}");
-                // }
-                // foreach (KeyValuePair<int, int> pair in skillLevel) {
-                //     Console.WriteLine ($"Skill Level: {pair.Value}");
-                // }
-                // foreach (KeyValuePair<int, decimal> pair in courageFactor) {
-                //     Console.WriteLine ($"Courage Factor: {pair.Value}");
-                // }
+                    skillTotal += currentskillCalc;
+                }
+                Console.WriteLine ($"Current Team skill level is {skillTotal}");
+
             }
             Console.WriteLine ($"You failed {failCount} times!");
             Console.WriteLine ($"You succeeded {successCount} times!");
